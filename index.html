@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<title>Grid</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				transition: all 0.8s ease;
+			}
+
+			a {
+				text-decoration: none;
+				color: black;
+			}
+
+			.container {
+				display: grid;
+				grid-template-columns: [border_left] 3% [aside] 30% [main] auto [border_right] 3%;
+				grid-template-rows: [head] 70px [body] auto [footer] auto;
+				grid-gap: 2% 15px;
+			}
+
+			.header {
+				grid-column: border_left / span 5;
+				grid-row: head / body;
+				background-color: #261937;
+				display: flex;
+				justify-content: space-between;
+				align-items: stretch;
+			}
+
+			.header a {
+				line-height: 70px;
+				flex-grow: 1;
+				text-align: center;
+				background-color: #5c3491;
+				color: #261937;
+				font-family: cursive;
+				font-size: 2em;
+			}
+
+			.header a:hover {
+				background-color: #261937;
+				color: #5c3491;
+			}
+
+			.header-brand {
+				min-width: 70px;
+				min-height: 70px;
+				background-image: url("http://placekitten.com/70/70");
+				background-repeat: no-repeat;
+				background-size: contain;
+				background-position: center;
+			}
+
+			.aside-nav, .footer-nav {
+				display: flex;
+				flex-direction: column;
+			}
+
+			.aside-nav {
+				padding: 0 3%;
+				grid-column: aside / main;
+				grid-row-start: body / footer;
+			}
+
+			.aside-nav a {
+				margin-bottom: 5px;
+				font-size: 1em;
+				font-family: cursive;
+				color: #261937;
+				border-bottom: 1px solid white;
+			}
+
+			.aside-nav a:hover {
+				border-color: #261937;
+			}
+
+			.content {
+				min-height: calc(90vh - 70px);
+				grid-column-start:main / border_right;
+				grid-row-start:body / footer;
+				color: #5c3491;
+			}
+
+			.content .highlight {
+				color: #261937;
+				text-decoration: underline;
+			}
+
+			.content > h1 {
+				color: #261937;
+			}
+
+			.content-galery {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			.footer {
+				padding: 5px 3%;
+				grid-column: border_left / span 5;
+				grid-row: footer / span 1;
+				background-color: #261937;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				color: #836e9f;
+			}
+
+			.footer-contacts {
+				display: flex;
+				flex-direction: column;
+			}
+
+			.footer-nav a, .footer-contacts a {
+				margin-bottom: 5px;
+				color: #836e9f;
+			}
+
+			.footer-nav a:hover, .footer-contacts a:hover {
+				color: #fff;
+			}
+		</style>
+	</head>
+	<body>
+		<div class = "container">
+			<header class = "header">
+				<div class = "header-brand">
+				</div>
+					<a href = "#">Home</a>
+					<a href = "#">About</a>
+					<a href = "#">Contacts</a>
+				</header>
+			</header>
+			<nav class = "aside-nav">
+				<a href = "#">Home</a>
+				<a href = "#">About</a>
+				<a href = "#">Contacts</a>
+			</nav>
+			<article class = "content">
+				<h1>Lorem Ipsum</h1>
+				<div class = "content-galery">
+					<img src = "http://placekitten.com/195/200" alt = "cat">
+					<img src = "http://placekitten.com/305/250" alt = "cat">
+					<img src = "http://placekitten.com/150/150" alt = "cat">
+				</div>
+				<div class = "content-text">
+					<p>
+						Lorem ipsum dolor sit amet, consectetur <span class = "highlight">adipiscing elit</span>. Integer venenatis, purus id gravida rhoncus, tortor elit hendrerit eros, ut feugiat ex nisl in erat. In hac habitasse platea dictumst. Donec eleifend suscipit leo, non sollicitudin metus ultrices a. Quisque sollicitudin viverra neque id tincidunt. Aliquam dapibus neque ut elit viverra, quis feugiat massa iaculis. Aliquam in metus tortor. Donec nec varius augue. Suspendisse tristique, ligula sit amet efficitur sollicitudin, felis nisi porttitor purus, eget cursus nunc diam a ante. Quisque ultrices nibh nisi, id egestas sapien molestie eu. Cras malesuada <span class = "highlight">nisi nulla</span>. Aenean vitae vehicula neque. Nulla felis elit, fermentum ut auctor ac, viverra et lectus.
+					</p>
+					<p>
+						Morbi faucibus magna ac nisl egestas, nec volutpat arcu rutrum. Aenean eu aliquam ante. Donec dui orci, facilisis eu auctor ac, mollis quis mi. Vestibulum ligula ex, molestie eget fermentum a, laoreet nec orci. Etiam gravida placerat felis non condimentum. <span class = "highlight">Vivamus mattis</span> bibendum ligula vitae iaculis. Nunc tincidunt elit in justo hendrerit congue.
+					</p>
+				</div>
+			</article>
+			<footer class = "footer">
+				<nav class = "footer-nav">
+					<a href = "#">Home</a>
+					<a href = "#">About</a>
+					<a href = "#">Contacts</a>
+				</nav>
+				<div class = "footer-contacts">
+					<a href = "tel:888888">88-88-88</a>
+					<a href = "mailto:example@ggg.com">example@ggg.com</a>
+				</div>
+				<div class = "footer-copyright">
+					By Company Name
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>
